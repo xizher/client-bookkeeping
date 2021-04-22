@@ -1,13 +1,16 @@
 import React, { useCallback, useState } from 'react'
 import {
-  TextInput
+  TextInput,
 } from '../base.components'
 import {
-  Button
+  Button,
 } from '@material-ui/core'
 import {
-  signIn as serviceSignIn
+  signIn as serviceSignIn,
 } from '../../services/login'
+import { useHistory } from 'react-router-dom'
+import useMsg from '../../hooks/useMsg'
+import { storageUtils } from '@xizher/js-utils'
 
 function SignIn () : JSX.Element {
 
@@ -16,12 +19,26 @@ function SignIn () : JSX.Element {
     password: '',
   })
 
+  const history = useHistory()
+  const [showMsg, MsgComponent] = useMsg()
+
   const signIn = useCallback(() => {
     const { account, password } = state
     serviceSignIn(account, password)
+      .then(res => {
+        if (res.success) {
+          storageUtils.local.set('account', res.account)
+          storageUtils.local.set('token', res.token)
+          history.push('/')
+        } else {
+          showMsg('登录失败', 'warning')
+        }
+      })
   }, [state])
 
+
   return (<>
+    <MsgComponent />
     <TextInput
       label="邮箱或用户名"
       value={ state.account }

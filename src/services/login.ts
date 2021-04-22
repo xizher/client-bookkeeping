@@ -27,3 +27,13 @@ export function signIn (account: string, password: string) : Promise<IAccountLog
     .then(res => res.json())
     .then(res => res.data)
 }
+
+export function check (token: string) : Promise<IAccount | null> {
+  return createFetch()
+    .setUrl('/api/account/check')
+    .setHeaders({ 'Content-Type': 'application/json;charset=UTF-8' })
+    .setBody(JSON.stringify({ token }), true)
+    .mountPost()
+    .then(res => res.json())
+    .then(res => res.data)
+}
