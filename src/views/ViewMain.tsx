@@ -9,6 +9,7 @@ function ViewMain () : JSX.Element {
   const token = storageUtils.local.get('token') ?? ''
   seriveCheck(token).then(account => {
     if (!account) {
+      storageUtils.local.remove('account').remove('token')
       history.push('/login')
     } else {
       storageUtils.local.set('account', account)

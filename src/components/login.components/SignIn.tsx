@@ -27,8 +27,9 @@ function SignIn () : JSX.Element {
     serviceSignIn(account, password)
       .then(res => {
         if (res.success) {
-          storageUtils.local.set('account', res.account)
-          storageUtils.local.set('token', res.token)
+          storageUtils.local
+            .set('account', res.account)
+            .set('token', res.token)
           history.push('/')
         } else {
           showMsg('登录失败', 'warning')
