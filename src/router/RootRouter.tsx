@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   HashRouter as Router,
   Switch,
   Route,
+  useHistory,
 } from 'react-router-dom'
 import {
   ViewLogin,
@@ -19,7 +20,7 @@ const routes : IRoute[] = [
   { path: '/', component: ViewMain }, // '/' need use in the end index
 ]
 
-function RouterView () : JSX.Element {
+function RootRouter () : JSX.Element {
   return (
     <Router>
       <Switch>
@@ -36,4 +37,4 @@ function RouterView () : JSX.Element {
   )
 }
 
-export default RouterView
+export default RootRouter

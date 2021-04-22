@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      height: {
+        'screen-56': 'calc(100vh - 56px)'
+      }
     },
   },
   variants: {

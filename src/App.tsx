@@ -1,10 +1,10 @@
 import React from 'react'
-import RouterView from './router/RouterView'
+import RootRouter from './router/RootRouter'
 
 function App () : JSX.Element {
 
   return (
-    <RouterView />
+    <RootRouter />
   )
 }
 
