@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import {
-  TextField,
+  TextField, TextFieldProps,
 } from '@material-ui/core'
 
 interface IProp {
   label?: string
-  value: string
+  value: any
   type?: string
   verification?: { [key: string]: (value: string) => boolean }
-  onChange?: (value: string) => void
+  onChange?: (value: any) => void
 }
 
-function TextInput (props: IProp) : JSX.Element {
+function TextInput (props: IProp & TextFieldProps) : JSX.Element {
   const { label, value, type, onChange, verification, ...other } = props
   const [state, setState] = useState({
     error: false,
