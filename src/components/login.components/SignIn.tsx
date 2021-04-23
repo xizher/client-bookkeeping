@@ -10,7 +10,7 @@ import {
 } from '../../services/login'
 import { useHistory } from 'react-router-dom'
 import useMsg from '../../hooks/useMsg'
-import { storageUtils } from '@xizher/js-utils'
+import { cryptoUtils, storageUtils } from '@xizher/js-utils'
 
 function SignIn () : JSX.Element {
 
@@ -23,7 +23,8 @@ function SignIn () : JSX.Element {
   const [showMsg, MsgComponent] = useMsg()
 
   const signIn = useCallback(() => {
-    const { account, password } = state
+    const { account } = state
+    const password = cryptoUtils.encrypto(cryptoUtils.encrypto(state.password))
     serviceSignIn(account, password)
       .then(res => {
         if (res.success) {
@@ -43,13 +44,13 @@ function SignIn () : JSX.Element {
     <TextInput
       label="邮箱或用户名"
       value={ state.account }
-      onChange={ val => setState({ ...state, account: val }) }
+      onChange={ (val: any) => setState({ ...state, account: val }) } // eslint-disable-line
     />
     <TextInput
       label="密码"
       type="password"
       value={ state.password }
-      onChange={ val => setState({ ...state, password: val }) }
+      onChange={ (val: any) => setState({ ...state, password: val }) } // eslint-disable-line
     />
     <div className="mt-4">
       <Button

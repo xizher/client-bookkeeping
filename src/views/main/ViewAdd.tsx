@@ -62,18 +62,18 @@ function ViewAdd () : JSX.Element {
     <TextInput
       label="收支类型"
       value={ state.type }
-      onChange={ (type: any) => setState({ ...state, type }) }
+      onChange={ (type: any) => setState({ ...state, type: type as string }) } // eslint-disable-line
     />
     <TextInput
       label="收支金额"
       type="number"
       value={ state.value }
-      onChange={ (value: any) => setState({ ...state, value }) }
+      onChange={ (value: any) => setState({ ...state, value }) } // eslint-disable-line
     />
     <TextInput
       label="备注"
       value={ state.comment }
-      onChange={ (comment: any) => setState({ ...state, comment }) }
+      onChange={ (comment: any) => setState({ ...state, comment }) } // eslint-disable-line
     />
     <div className="flex items-center">
       <span>是否记录坐标：</span>
@@ -91,7 +91,7 @@ function ViewAdd () : JSX.Element {
           disabled
           fullWidth={ false }
           value={ lonlat }
-          onChange={ (lonlat: any) => setLonlat(lonlat) }
+          onChange={ (lonlat: any) => setLonlat(lonlat) } // eslint-disable-line
         />
         <Button style={{ marginLeft: 'auto' }} variant="contained" onClick={ locate }>定位</Button>
       </div>

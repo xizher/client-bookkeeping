@@ -5,13 +5,12 @@ import {
 
 interface IProp {
   label?: string
-  value: any
   type?: string
   verification?: { [key: string]: (value: string) => boolean }
-  onChange?: (value: any) => void
+  onChange?: (value: string | number) => void
 }
 
-function TextInput (props: IProp & TextFieldProps) : JSX.Element {
+function TextInput (props: & TextFieldProps & IProp) : JSX.Element {
   const { label, value, type, onChange, verification, ...other } = props
   const [state, setState] = useState({
     error: false,
