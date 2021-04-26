@@ -1,5 +1,6 @@
 @import url(./default.css);
 @import url(./overwrite.css);
+@import url(./login.css);
 /* @tailwind base; */
 @tailwind components;
 @tailwind utilities;

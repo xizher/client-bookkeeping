@@ -1,0 +1,31 @@
+.login-wrap {
+  position: relative;
+  margin: 0 auto;
+  background: #ecf0f1;
+  width: 350px;
+  max-width: 80vw;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #333;
+  padding: 15px;
+}
+.login-wrap .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-wrap .form input[type=text],
+.login-wrap .form input[type=password],
+.login-wrap .form button {
+  margin: 10px 0;
+  width: 80%;
+  height: 40px;
+  border-radius: 5px;
+  outline: 0;
+}
+.login-wrap .form input[type=text],
+.login-wrap .form input[type=password] {
+  border: 1px solid #bbb;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+}

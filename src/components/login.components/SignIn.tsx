@@ -1,11 +1,5 @@
 import React, { useCallback, useState } from 'react'
 import {
-  TextInput,
-} from '../base.components'
-import {
-  Button,
-} from '@material-ui/core'
-import {
   signIn as serviceSignIn,
 } from '../../services/login'
 import { useHistory } from 'react-router-dom'
@@ -41,26 +35,23 @@ function SignIn () : JSX.Element {
 
   return (<>
     <MsgComponent />
-    <TextInput
-      label="邮箱或用户名"
-      value={ state.account }
-      onChange={ (val: any) => setState({ ...state, account: val }) } // eslint-disable-line
-    />
-    <TextInput
-      label="密码"
-      type="password"
-      value={ state.password }
-      onChange={ (val: any) => setState({ ...state, password: val }) } // eslint-disable-line
-    />
-    <div className="mt-4">
-      <Button
-        className="w-full"
-        variant="contained"
-        size="medium"
-        onClick={ signIn }
-      >
-        Small
-      </Button>
+    <div className="login-wrap">
+      <div className="form">
+        <input
+          type="text"
+          placeholder="用户名或邮箱"
+          value={ state.account }
+          onChange={ e => setState({ ...state, account: e.target.value }) }
+          onKeyDown={ e => e.key === 'Enter' && signIn() }
+        />
+        <input
+          type="password"
+          placeholder="密码"
+          value={ state.password }
+          onChange={ e => setState({ ...state, password: e.target.value }) }
+          onKeyDown={ e => e.key === 'Enter' && signIn() }
+        />
+      </div>
     </div>
   </>)
 }

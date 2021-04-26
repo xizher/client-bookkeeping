@@ -7,7 +7,7 @@ export default defineConfig({
     port: 8080,
     proxy: {
       '/api': {
-        target: 'http://localhost/api',
+        target: 'https://wuxizhe.fun/api',
         changeOrigin: true,
         rewrite: path => path.replace(/^\/api/, '')
       },
