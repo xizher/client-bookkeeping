@@ -4,7 +4,6 @@ import {
   Route,
 } from 'react-router-dom'
 import {
-  ViewHome,
   ViewTable,
   ViewAdd,
 } from '../views'
@@ -17,7 +16,6 @@ interface IRoute {
 function MainRouter () : JSX.Element {
 
   const routes : IRoute[] = [
-    { path: '/home', component: ViewHome },
     { path: '/table', component: ViewTable },
     { path: '/add', component: ViewAdd },
   ]

@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   HashRouter as Router,
   Switch,
   Route,
-  useHistory,
 } from 'react-router-dom'
 import {
   ViewLogin,
